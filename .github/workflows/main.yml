@@ -27,7 +27,7 @@ jobs:
 
     - name: Run C++ tests with VSTest
       # Use the path found in the previous step
-      run:  vstest.console.exe x64/debug/UnitTest.dll /Platform:x64 /Logger:trx
+      run:  vstest.console.exe x64/debug/UnitTest.dll /Platform:x64 /logger:trx
       # The VSTest action marketplace has some issues/deprecations, so manual execution is safer
       shell: cmd
       
@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: 'tests/latest.trx' # Upload the .trx results file
+        path: 'TestResults/latest.trx' # Upload the .trx results file
