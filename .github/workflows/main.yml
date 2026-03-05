@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: 'TestResults/latest.trx' # Upload the .trx results file
+        path: 'TestResults/*.trx' # Upload the .trx results file
