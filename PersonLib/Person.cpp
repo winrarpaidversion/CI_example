@@ -10,6 +10,11 @@ int Person::getAge()
     return age;
 }
 
+Person::Gender Person::getGender()
+{
+    return gender
+}
+
 Person::Person(std::string n, int age, Gender g) : name{n}, age{age}, gender{g}
 {
     if (name.empty())
