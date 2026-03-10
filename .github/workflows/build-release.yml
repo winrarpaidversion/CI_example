@@ -23,3 +23,18 @@ jobs:
           name: cider-nrepl $
           generateReleaseNotes: true  # Auto-generate release notes based on PRs and commits
           token: $
+      - name: Setup Visual Studio environment
+        # This action sets up the necessary environment variables for MSVC build tools
+        uses: ilammy/msvc-dev-cmd@v1.4.1
+        # You can specify the architecture, e.g., 'x64' or 'x86'
+        with:
+          arch: x64
+      - name: Build Solution
+        # Use MSBuild to compile the entire solution, including the test projects
+        run: msbuild TestingUnitTests.sln /p:Configuration=Release /p:Platform=x64
+     
+      - name: Upload files artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: out-directory
+          path: 'x64/Release/*.**' # Upload the .trx results file
