@@ -19,10 +19,8 @@ jobs:
       - name: Create GitHub Release with Auto-Generated Notes
         uses: ncipollo/release-action@v1
         with:
-          tag: $
           name: cider-nrepl $
           generateReleaseNotes: true  # Auto-generate release notes based on PRs and commits
-          token: $
       - name: Setup Visual Studio environment
         # This action sets up the necessary environment variables for MSVC build tools
         uses: ilammy/msvc-dev-cmd@v1.4.1
