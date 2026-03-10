@@ -3,7 +3,7 @@
 class Person
 {
 public:
-	enum Gender{MALE, FEMALE, NONBINARY};
+	enum Gender{MALE, FEMALE, UNDEF};
 private:
 	int age;
 	std::string name;
