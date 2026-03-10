@@ -1,1 +1,16 @@
 changelog:
+  exclude:
+    labels:
+      - wontfix
+    authors:
+      - allen
+  categories:
+    - title: New fixes
+      labels:
+        - fix
+    - title: New bugs
+        labels:
+          - bug
+    - title: Other PR
+      labels: "*"
+      
