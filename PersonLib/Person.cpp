@@ -12,7 +12,7 @@ int Person::getAge()
 
 Person::Gender Person::getGender()
 {
-    return gender
+    return gender;
 }
 
 Person::Person(std::string n, int age, Gender g) : name{n}, age{age}, gender{g}
