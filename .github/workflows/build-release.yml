@@ -16,12 +16,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Create GitHub Release with Auto-Generated Notes
-        uses: ncipollo/release-action@v1
-        with:
-          name: ${{ github.ref_name }}
-          generateReleaseNotes: true  # Auto-generate release notes based on PRs and commits
-          artifacts: "**/Release/*.exe"
+      
       - name: Setup Visual Studio environment
         # This action sets up the necessary environment variables for MSVC build tools
         uses: ilammy/msvc-dev-cmd@v1.4.1
@@ -31,7 +26,14 @@ jobs:
       - name: Build Solution
         # Use MSBuild to compile the entire solution, including the test projects
         run: msbuild TestingUnitTests.sln /p:Configuration=Release /p:Platform=x64
-     
+
+      - name: Create GitHub Release with Auto-Generated Notes
+        uses: ncipollo/release-action@v1
+        with:
+          name: ${{ github.ref_name }}
+          generateReleaseNotes: true  # Auto-generate release notes based on PRs and commits
+          artifacts: "x64/Release/*.exe"
+
       - name: Upload files artifacts
         uses: actions/upload-artifact@v4
         with:
