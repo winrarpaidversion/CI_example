@@ -19,8 +19,9 @@ jobs:
       - name: Create GitHub Release with Auto-Generated Notes
         uses: ncipollo/release-action@v1
         with:
-          name: cider-nrepl $
+          name: ${{ github.ref_name }}
           generateReleaseNotes: true  # Auto-generate release notes based on PRs and commits
+          artifacts: "x64/Release/*.exe"
       - name: Setup Visual Studio environment
         # This action sets up the necessary environment variables for MSVC build tools
         uses: ilammy/msvc-dev-cmd@v1.4.1
